@@ -11,8 +11,6 @@
     <property name="hibernate.connection.password">password</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping class="pl.sda.web.jsp.model.User"/>
-    <mapping class="pl.sda.web.jsp.model.Post"/>
-    <mapping class="pl.sda.web.jsp.model.Comment"/>
+    <mapping class="pl.sda.inheritance.model.Vehicle"/>
   </session-factory>
 </hibernate-configuration>
