@@ -8,9 +8,13 @@ public abstract class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-    @Temporal(value = TemporalType.TIMESTAMP)
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "added", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL", nullable = false, insertable = false)
     protected Date added;
-    @Temporal(value = TemporalType.TIMESTAMP)
+
+    @Column(name = "modified", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL", nullable = false, insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     protected Date modified;
 
     public Integer getId() {
