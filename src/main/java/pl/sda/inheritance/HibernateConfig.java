@@ -4,6 +4,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import pl.sda.inheritance.model.FourWheeler;
+import pl.sda.inheritance.model.TwoWheeler;
+import pl.sda.inheritance.model.Vehicle;
 
 import javax.imageio.spi.ServiceRegistry;
 
@@ -16,6 +19,9 @@ public class HibernateConfig {
     public static SessionFactory getInstance() {
         if (sessionFactory == null) {
             Configuration configuration = new Configuration();
+            configuration.addAnnotatedClass(Vehicle.class);
+            configuration.addAnnotatedClass(TwoWheeler.class);
+            configuration.addAnnotatedClass(FourWheeler.class);
             configuration.configure();
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties())
